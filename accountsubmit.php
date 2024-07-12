@@ -1,4 +1,6 @@
 <?php
+require('config.php');
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $membershipNO = $_POST['membershipNO'];
     $password = $_POST['password'];
@@ -9,8 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // Database connection
-    $conn = new mysqli('localhost', 'root', '', 'aphoadb');
     if ($conn->connect_error) {
         die("Connection Failed : " . $conn->connect_error);
     } else {
