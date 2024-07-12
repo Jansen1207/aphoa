@@ -2,7 +2,7 @@
 require('config.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $membershipNO = $_POST['membershipNO'];
+    $memberId = $_POST['member_id'];
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmPassword'];
 
@@ -14,8 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->connect_error) {
         die("Connection Failed : " . $conn->connect_error);
     } else {
-        $stmt = $conn->prepare("INSERT INTO members(membership_no, password) VALUES (?, ?)");
-        $stmt->bind_param("ss", $membershipNO, $password);
+        #$stmt = $conn->prepare("INSERT INTO members(membership_no, password) VALUES (?, ?)");
+        $stmt = $conn->prepare("UPDATE members SET password = ? WHERE id = ?");
+        $stmt->bind_param("si", $password, $memberId);
         
         // Execute the statement
         $execval = $stmt->execute();

@@ -1,3 +1,15 @@
+<?php
+require('config.php');
+session_start();
+
+$sql = "select m.membership_no, i.* from members m 
+inner join information i on m.id = i.member_id
+where m.id = '{$_SESSION['member_id']}'";
+
+$result = $conn->query($sql);
+$memberData = $result->fetch_assoc();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -184,7 +196,7 @@
         
             <form action="logout.php" method="POST">
             <select name="logout" onchange="this.form.submit()">
-            <option style="display:none;">Mia Khalifa</option>
+            <option ><?php echo ucfirst($memberData['first_name']) . ' ' . ucfirst($memberData['last_name']) ?></option>
             <option style="background-color: #337AB7;color:#fff;">Logout</option>
             </select>
             </form>
@@ -218,8 +230,10 @@
                     <br>
                         <table id="table1">
                         <tbody><tr>
-                        <th width="170">
-                        Name:
+                        <th>
+                        Membership No : <?php echo $memberData['membership_no']; ?>
+                        <br />
+                        Name: <?php echo ucfirst($memberData['first_name']) . ' ' . ucfirst($memberData['last_name']) ?>
                         </th>
 						
 				</tr>

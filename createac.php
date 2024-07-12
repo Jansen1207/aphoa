@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,7 +93,8 @@
       <form action="accountsubmit.php" method="POST">
         <div class="form-group">
           <label for="membershipNO">Membership No.</label>
-          <input type="text" id="membershipNO" name="membershipNO" class="form-control" placeholder="Enter membership no." required>
+          <input type="text" id="membershipNO" name="membershipNO" class="form-control" placeholder="Enter membership no." value="<?php echo $_SESSION['membership_no']; ?>" disabled="disabled">
+          <input type="hidden" id="member_id" name="member_id" value="<?php echo $_SESSION['member_id']; ?>">
         </div>
         <div class="form-group">
           <label for="password">Password</label>
