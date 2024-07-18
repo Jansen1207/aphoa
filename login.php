@@ -1,3 +1,11 @@
+<?php
+session_start(); // Start the session to access session variables
+
+// Check if there's a login error message in session
+$login_error = isset($_SESSION['login_error']) ? $_SESSION['login_error'] : '';
+unset($_SESSION['login_error']); // Clear the login error message from session
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,6 +118,10 @@
     <div class="container">
         <h1>ANAK-PAWIS HOMEOWNERS' ASSOCIATION, INC.</h1>
         <img src="anak.png" alt="Anak Pawis Logo" class="center">
+        
+        <!-- Display error message if login failed -->
+      
+        
         <form action="connect.php" method="POST">
             <label for="member">Membership No.</label>
             <input type="text" id="member" name="member" placeholder="Enter your Membership No." required>
@@ -122,9 +134,13 @@
             
             <input type="submit" value="Log In">
         </form>
+          <?php if (!empty($login_error)): ?>
+            <p style="color: red;"><?php echo $login_error; ?></p>
+        <?php endif; ?>
         <div class="forgot-password">
             <p><a href="forgotpassword.php">Forgot password?</a></p>
         </div>
+        
         <div class="register-link">
             <p>Not a member? <a href="termsandcondi.php">Register here!</a></p>
         </div>
