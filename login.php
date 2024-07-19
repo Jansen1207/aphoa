@@ -40,8 +40,7 @@ if(isset($_POST['member']) && isset($_POST['password'])) {
 
         $conn->close();
     }
-} else {
-    echo "Invalid form submission.";
+
 }
 ?>
 <!DOCTYPE html>

@@ -258,7 +258,7 @@ section {
 </head>
 <body>
     <div class="sidebar">
-        <img src="anak.png" alt="Anak Pawis Logo" class="logo">
+        <img src="./images/anak.png" alt="Anak Pawis Logo" class="logo">
         <h3>ANAK-PAWIS HOMEOWNERS' ASSOCIATION (APHOA), INC.</h3>
         <a href="javascript:void(0)" onclick="showContent('dashboard')">Dashboard</a>
         <a href="javascript:void(0)" onclick="showContent('announcementcenter')">Announcement Center</a>
@@ -340,7 +340,7 @@ section {
                         </td>
                     </tr>
                 </table>
-                <?php include 'includes/announcement.php'; ?>
+                <?php include './includes/./includes/announcement.php'; ?>
             </div>
         </div>
 
@@ -354,7 +354,7 @@ section {
     <!-- announcement content goes here -->
     <div id="message" style="color: green;"></div>
     
-    <form id="announcementForm" action="includes/announcement.php" method="post">
+    <form id="announcementForm" action="./includes/announcement.php" method="post">
         <input type="text" name="title" placeholder="Title" required>
         <textarea name="message" placeholder="Message" required></textarea>
         <button type="submit">Submit</button>
@@ -369,7 +369,7 @@ document.getElementById('announcementForm').addEventListener('submit', function(
 
     // Send the form data asynchronously
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'announcement.php', true);
+    xhr.open('POST', './includes/announcement.php', true);
 
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 400) {
