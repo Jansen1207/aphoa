@@ -2,7 +2,7 @@
 require('config.php');
 session_start();
 
-$sql = "SELECT m.membership_no, i.* FROM members m 
+$sql = "SELECT m.*, i.* FROM members m 
         INNER JOIN information i ON m.id = i.member_id
         WHERE m.id = '{$_SESSION['member_id']}'";
 

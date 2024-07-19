@@ -1,5 +1,9 @@
 <?php
-require('config.php');
+include_once(dirname(__FILE__).'/../config.php');
+
+if(!isset($_SESSION)) { 
+    session_start(); 
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
@@ -13,8 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === TRUE) {
         echo "New announcement created successfully";
+        exit;        
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
+        exit;
     }
 }
 
