@@ -2,12 +2,17 @@
 require('config.php');
 session_start();
 
-$sql = "SELECT m.membership_no, i.* FROM members m 
-        INNER JOIN information i ON m.id = i.member_id
+$sql = "SELECT m.*, i.* FROM members m 
+        INNER JOIN information i ON m.id = i.member_id 
         WHERE m.id = '{$_SESSION['member_id']}'";
 
 $result = $conn->query($sql);
 $memberData = $result->fetch_assoc();
+
+if ($memberData['group'] != 3) {
+    header('Location: member.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -258,7 +263,7 @@ section {
 </head>
 <body>
     <div class="sidebar">
-        <img src="anak.png" alt="Anak Pawis Logo" class="logo">
+        <img src="./images/anak.png" alt="Anak Pawis Logo" class="logo">
         <h3>ANAK-PAWIS HOMEOWNERS' ASSOCIATION (APHOA), INC.</h3>
         <a href="javascript:void(0)" onclick="showContent('dashboard')">Dashboard</a>
         <a href="javascript:void(0)" onclick="showContent('announcementcenter')">Announcement Center</a>
@@ -280,7 +285,7 @@ section {
                             <h3 style="margin: 1px;">Dashboard</h3>
                         </td>
                         <td align="right">
-                            <img src="menicon.png" width="50" height="50">
+                            <img src="./images/menicon.png" width="50" height="50">
                         </td>
                         <td width="120" align="right">
                             <form action="logout.php" method="POST">
@@ -310,7 +315,7 @@ section {
                     <tr>
                         <td valign="center" width="80">
                             <center>
-                                <img src="menicon.png" width="80" height="80" style="border-radius: 50%;">
+                                <img src="./images/menicon.png" width="80" height="80" style="border-radius: 50%;">
                             </center>
                         </td>
                         <td valign="top">
@@ -329,7 +334,7 @@ section {
                 </table>
             </div>
 
-            <div class="announce">
+            <div class="announce" style="display: block;">
                 <table width="100%">
                     <tr>
                         <td align="left">
@@ -340,7 +345,7 @@ section {
                         </td>
                     </tr>
                 </table>
-                <?php include 'includes/announcement.php'; ?>
+                <?php include './includes/announcement.php'; ?>
             </div>
         </div>
 
@@ -369,7 +374,7 @@ document.getElementById('announcementForm').addEventListener('submit', function(
 
     // Send the form data asynchronously
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'announcement.php', true);
+    xhr.open('POST', './includes/announcement.php', true);
 
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 400) {
