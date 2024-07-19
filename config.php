@@ -2,7 +2,7 @@
 // Database connection
 $db_host = 'localhost';
 $db_username = 'root';
-$db_password = '';
+$db_password = '123123';
 $db_name = 'aphoadb';
 
 // Create connection

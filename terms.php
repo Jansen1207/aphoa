@@ -3,7 +3,7 @@
 <head>
   <style>
     body {
-      background-image: url('bgaphoa.jpg');
+      background-image: url('./images/bgaphoa.jpg');
             background-size: cover; /* Ensures the image covers the entire background */
             background-repeat: no-repeat; /* Prevents the image from repeating */
             background-position: center center; /* Centers the image */

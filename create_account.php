@@ -1,6 +1,41 @@
 <?php
+require('config.php');
 session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $memberId = $_POST['member_id'];
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirmPassword'];
+
+    if ($password !== $confirmPassword) {
+        echo "Passwords do not match. Please go back and try again.";
+        exit;
+    }
+
+    if ($conn->connect_error) {
+        die("Connection Failed : " . $conn->connect_error);
+    } else {
+        #$stmt = $conn->prepare("INSERT INTO members(membership_no, password) VALUES (?, ?)");
+        $stmt = $conn->prepare("UPDATE members SET password = ? WHERE id = ?");
+        $stmt->bind_param("si", $password, $memberId);
+        
+        // Execute the statement
+        $execval = $stmt->execute();
+        
+        if ($execval === false) {
+            echo "Error: " . $stmt->error;
+        } else {
+            // Redirect to login.php
+            header("Location: login.php");
+            exit;
+        }
+        
+        $stmt->close();
+        $conn->close();
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,11 +125,13 @@ session_start();
   <div class="container">
     <div class="create-account-form">
       <h2>Create Account</h2>
-      <form action="accountsubmit.php" method="POST">
+      <form action="" method="POST">
         <div class="form-group">
           <label for="membershipNO">Membership No.</label>
-          <input type="text" id="membershipNO" name="membershipNO" class="form-control" placeholder="Enter membership no." value="<?php echo $_SESSION['membership_no']; ?>" disabled="disabled">
+          <input type="text" id="membershipNO" name="membershipNO" class="form-control" placeholder="Enter membership no." value="<?php echo (isset($_SESSION['membership_no']) ? $_SESSION['membership_no'] : ''); ?>" disabled="disabled">
+          <?php if (isset($_SESSION['member_id'])) { ?>
           <input type="hidden" id="member_id" name="member_id" value="<?php echo $_SESSION['member_id']; ?>">
+          <?php } ?>
         </div>
         <div class="form-group">
           <label for="password">Password</label>

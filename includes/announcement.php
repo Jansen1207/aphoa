@@ -1,6 +1,24 @@
 <?php
 require('config.php');
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $title = $_POST['title'];
+    $message = $_POST['message'];
+    $created_at = date('Y-m-d H:i:s'); // Current timestamp
+    $member_id = $_SESSION['member_id'];
+
+    // SQL query to insert data into announcements table
+    $sql = "INSERT INTO announcements (title, message, created_at, member_id) VALUES ('$title', '$message', '$created_at', '$member_id')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "New announcement created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+
 // SQL query to fetch announcements
 $sql = "SELECT title, message, DATE_FORMAT(created_at, '%M %e, %Y') AS formatted_date, member_id FROM announcements ORDER BY created_at DESC";
 $result = $conn->query($sql);

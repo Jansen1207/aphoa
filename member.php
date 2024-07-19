@@ -15,7 +15,7 @@ $memberData = $result->fetch_assoc();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Membership Dashboard</title>
-    <link rel="stylesheet" href="memberstyles.css">
+    <link rel="stylesheet" href="./css/member.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
@@ -109,7 +109,7 @@ $memberData = $result->fetch_assoc();
                     <h1 style="margin-bottom:1px;margin-top:1px;">Dashboard</h1>
                 </td>
                 <td align="right">
-                    <img src="menicon.png" width="50" height="50" style="border-radius: 50%;">
+                    <img src="./images/menicon.png" width="50" height="50" style="border-radius: 50%;">
                 </td>
                 <td width="120">
                     &nbsp;&nbsp;&nbsp;
@@ -126,7 +126,7 @@ $memberData = $result->fetch_assoc();
     
     <div class="container">
         <div class="sidebar">
-            <img src="aphoa.png" alt="Anak Pawis Logo" class="logo">
+            <img src="./images/aphoa.png" alt="Anak Pawis Logo" class="logo">
             <h3>ANAK-PAWIS HOMEOWNERS' ASSOCIATION (APHOA), INC.</h3>
             <ul>
                 <li><a href="MemberDashboard.php">Dashboard</a></li>
@@ -143,7 +143,7 @@ $memberData = $result->fetch_assoc();
             <h2>Welcome, <?php echo ucfirst($memberData['first_name']) . ' ' . ucfirst($memberData['last_name']) ?></h2>
 
             <div class="announcement-container">
-    <?php include 'get_announcement.php'; ?>
+    <?php include './includes/announcement.php'; ?>
 </div>
 
             <div class="graphs-container">
