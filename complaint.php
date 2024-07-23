@@ -1,10 +1,21 @@
+<?php
+require('config.php');
+session_start();
+
+$sql = "SELECT m.*, i.* FROM members m 
+        INNER JOIN information i ON m.id = i.member_id
+        WHERE m.id = '{$_SESSION['member_id']}'";
+
+$result = $conn->query($sql);
+$memberData = $result->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Membership Dashboard - Complaint</title>
-    <link rel="stylesheet" href="memberstyles.css">
+    <link rel="stylesheet" href="./css/member.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -132,14 +143,14 @@
                     <h1 style="margin-bottom:1px;margin-top:1px;">Complaint</h1>
                 </td>
                 <td align="right">
-                    <img src="menicon.png" width="50" height="50" style="border-radius: 50%;">
+                    <img src="./images/menicon.png" width="50" height="50" style="border-radius: 50%;">
                 </td>
                 <td width="120">
                     &nbsp;&nbsp;&nbsp;
                     <form action="logout.php" method="POST">
                         <select name="logout" onchange="this.form.submit()">
-                            <option style="display:none;">ALVIN ARTEZA</option>
-                            <option style="background-color: #337AB7;color:#fff;">Logout</option>
+                        <option><?php echo ucfirst($memberData['first_name']) . ' ' . ucfirst($memberData['last_name']) ?></option>
+                        <option style="background-color: #337AB7;color:#fff;" value="logout">Logout</option>
                         </select>
                     </form>
                 </td>
@@ -149,23 +160,23 @@
     
     <div class="container">
         <div class="sidebar">
-            <img src="aphoa.png" alt="Anak Pawis Logo" class="logo">
+            <img src="./images/aphoa.png" alt="Anak Pawis Logo" class="logo">
             <h3>ANAK-PAWIS HOMEOWNERS' ASSOCIATION (APHOA), INC.</h3>
             <ul>
                 <!-- Member Dashboard Navigation -->
-                 <li><a href="MemberDashboard.php">Dashboard</a></li>
-                <li><a href="Profile.php">Profile</a></li>
+                <li><a href="member.php">Dashboard</a></li>
+                <li><a href="profile.php">Profile</a></li>
                 <li><a href="complaint.php">My Complaint</a></li>
-                <li><a href="MDues.php">Monthly Dues</a></li>
+                <li><a href="monthly_dues.php">Monthly Dues</a></li>
                 <li><a href="paymentmain.php">Payment</a></li>
-                <li><a href="Documents.php">Documents</a></li>
+                <li><a href="documents.php">Documents</a></li>
             </ul>
         </div>
         
         <div class="main-content">
             <section class="complaint-body">
                 <div class="submit-complaint">
-                    <h2><img src="comp3.png" alt="Submit Icon" class="icon"> Submit a New Complaint</h2>
+                    <h2><img src="./images/comp3.png" alt="Submit Icon" class="icon"> Submit a New Complaint</h2>
                     <form action="submit_complaint.php" method="POST" enctype="multipart/form-data">
                         <label for="title">Title/Subject:</label>
                         <input type="text" id="title" name="title" required>

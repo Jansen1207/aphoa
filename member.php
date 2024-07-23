@@ -129,12 +129,12 @@ $memberData = $result->fetch_assoc();
             <img src="./images/aphoa.png" alt="Anak Pawis Logo" class="logo">
             <h3>ANAK-PAWIS HOMEOWNERS' ASSOCIATION (APHOA), INC.</h3>
             <ul>
-                <li><a href="MemberDashboard.php">Dashboard</a></li>
-                <li><a href="Profile.php">Profile</a></li>
+                <li><a href="member.php">Dashboard</a></li>
+                <li><a href="profile.php">Profile</a></li>
                 <li><a href="complaint.php">My Complaint</a></li>
-                <li><a href="MDues.php">Monthly Dues</a></li>
+                <li><a href="monthly_dues.php">Monthly Dues</a></li>
                 <li><a href="paymentmain.php">Payment</a></li>
-                <li><a href="Documents.php">Documents</a></li>
+                <li><a href="documents.php">Documents</a></li>
             </ul>
         </div>
         

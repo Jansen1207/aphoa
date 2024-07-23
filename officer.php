@@ -20,6 +20,7 @@ if ($memberData['group'] != 3) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/announcement.css">
+    <link rel="stylesheet" type="text/css" href="./css/member.css">
     <title>HOA Dashboard</title>
 
     <style>
@@ -252,53 +253,62 @@ section {
     
 
     <script>
-        function showContent(section) {
-            const sections = ['dashboard', 'announcementcenter', 'reports', 'qrcodes', 'monthlydues', 'receipts', 'generatesms', 'documents', 'certification'];
-            sections.forEach(sec => {
-                document.getElementById(sec).style.display = 'none';
-            });
-            document.getElementById(section).style.display = 'block';
-        }
-    </script>
+function showContent(contentId, title) {
+    // Hide all content sections
+    const sections = ['dashboard', 'announcementcenter', 'reports', 'qrcodes', 'monthlydues', 'receipts', 'generatesms', 'documents', 'certification'];
+    sections.forEach(sec => {
+        document.getElementById(sec).style.display = 'none';
+    });
+
+    // Show the selected content section
+    document.getElementById(contentId).style.display = 'block';
+
+    // Update the header title
+    document.getElementById('header-title').innerText = title;
+}
+</script>
+
 </head>
 <body>
     <div class="sidebar">
         <img src="./images/anak.png" alt="Anak Pawis Logo" class="logo">
         <h3>ANAK-PAWIS HOMEOWNERS' ASSOCIATION (APHOA), INC.</h3>
-        <a href="javascript:void(0)" onclick="showContent('dashboard')">Dashboard</a>
-        <a href="javascript:void(0)" onclick="showContent('announcementcenter')">Announcement Center</a>
-        <a href="javascript:void(0)" onclick="showContent('reports')">Reports</a>
-        <a href="javascript:void(0)" onclick="showContent('qrcodes')">QR Codes</a>
-        <a href="javascript:void(0)" onclick="showContent('monthlydues')">Monthly Dues</a>
-        <a href="javascript:void(0)" onclick="showContent('receipts')">Receipts</a>
-        <a href="javascript:void(0)" onclick="showContent('generatesms')">Generate SMS</a>
-        <a href="javascript:void(0)" onclick="showContent('documents')">Documents</a>
-        <a href="javascript:void(0)" onclick="showContent('certification')">Certification</a>
+        <a href="javascript:void(0)" onclick="showContent('dashboard', 'Dashboard')">Dashboard</a>
+        <a href="javascript:void(0)" onclick="showContent('announcementcenter', 'Announcement Center')">Announcement Center</a>
+        <a href="javascript:void(0)" onclick="showContent('reports', 'Reports')">Reports</a>
+        <a href="javascript:void(0)" onclick="showContent('qrcodes', 'QR Codes')">QR Codes</a>
+        <a href="javascript:void(0)" onclick="showContent('monthlydues', 'Monthly Dues')">Monthly Dues</a>
+        <a href="javascript:void(0)" onclick="showContent('receipts', 'Receipts')">Receipts</a>
+        <a href="javascript:void(0)" onclick="showContent('generatesms', 'Generate SMS')">Generate SMS</a>
+        <a href="javascript:void(0)" onclick="showContent('documents', 'Documents')">Documents</a>
+        <a href="javascript:void(0)" onclick="showContent('certification', 'Certification')">Certification</a>
     </div>
 
+    
     <div class="content">
-        <div id="dashboard">
-            <div class="header">
-                <table width="100%">
-                    <tr>
-                        <td>
-                            <h3 style="margin: 1px;">Dashboard</h3>
-                        </td>
-                        <td align="right">
-                            <img src="./images/menicon.png" width="50" height="50">
-                        </td>
-                        <td width="120" align="right">
-                            <form action="logout.php" method="POST">
-                                <select name="logout" onchange="this.form.submit()">
-                                    <option><?php echo ucfirst($memberData['first_name']) . ' ' . ucfirst($memberData['last_name']) ?></option>
-                                    <option style="background-color: #337AB7;color:#fff;" value="logout">Logout</option>
-                                </select>
-                            </form>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+        <div class="header">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <h3 id="header-title" style="margin: 1px;">Dashboard</h3>
+                    </td>
+                    <td align="right">
+                        <img src="./images/menicon.png" width="50" height="50">
+                    </td>
+                    <td width="120" align="right">
+                        <form action="logout.php" method="POST">
+                            <select name="logout" onchange="this.form.submit()">
+                                <option><?php echo ucfirst($memberData['first_name']) . ' ' . ucfirst($memberData['last_name']) ?></option>
+                                <option style="background-color: #337AB7;color:#fff;" value="logout">Logout</option>
+                            </select>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
+            <div id="dashboard">
+            <!-- Dashboard content -->
             <div class="profile">
                 <table width="100%">
                     <tr>
@@ -345,24 +355,20 @@ section {
                         </td>
                     </tr>
                 </table>
-<<<<<<< HEAD
-                <?php include './includes/./includes/announcement.php'; ?>
-=======
                 <?php include './includes/announcement.php'; ?>
->>>>>>> 619175f05a45fad55580d24e4f33a621c346e0bf
+                <?php include 'announcement.php'; ?>
             </div>
-        </div>
-
+            </div>
         <div id="reports" style="display: none;">
             <h3>Reports</h3>
             <!-- Reports content goes here -->
         </div>
 
-       <div id="announcementcenter">
+    
+    <div id="announcementcenter" style="display: none;">
     <h3>Announcement Center</h3>
     <!-- announcement content goes here -->
     <div id="message" style="color: green;"></div>
-    
     <form id="announcementForm" action="./includes/announcement.php" method="post">
         <input type="text" name="title" placeholder="Title" required>
         <textarea name="message" placeholder="Message" required></textarea>
