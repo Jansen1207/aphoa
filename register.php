@@ -26,9 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $type = $_POST['type'] ?? null;
     $length_of_stay = $_POST['length_of_stay'] ?? null;
     $owner_name = $_POST['owner_name'] ?? null;
-    $occupant_name_1 = $_POST['occupant_name_1'] ?? null;
-    $occupant_age_1 = $_POST['occupant_age_1'] ?? null;
-    $occupant_relationship_1 = $_POST['occupant_relationship_1'] ?? null;
+
+    $occupantData = $_POST['occupant'];
+
+    echo '<pre>';
+    print_r($occupantData);
+    exit;
 
     $stmt = $conn->prepare("INSERT INTO members (membership_no) VALUES (?)");
     $stmt->bind_param("s", $membership_no);  
@@ -48,23 +51,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Prepare and bind SQL statement
     $stmt = $conn->prepare("INSERT INTO information (member_id, last_name, first_name, middle_name, contact_no, email_address, occupation, address, educ_attainment, birthdate, date_submitted, sex, civil_status, homeowner_status, type, length_of_stay, owner_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssssssssssssiss", $memberData['id'], $last_name, $first_name, $middle_name, $contact_no, $email_address, $occupation, $address, $educ_attainment, $birthdate, $date_submitted, $sex, $civil_status, $homeowner_status, $type, $length_of_stay, $owner_name);
+    $stmt->execute();
 
-    // Execute and check if successful
-    if ($stmt->execute()) {
-        // Close statement
-        $stmt->close();
-        $conn->close();
-        
-        // Redirect back to createac.php with success message
-        header("Location: create_account.php?success=true");
-        exit;
-    } else {
-        echo "Error: " . $stmt->error;
+    // Prepare and bind SQL statement
+    $stmt = $conn->prepare("INSERT INTO occupant (member_id, name, age, relationship) VALUES (?, ?, ?, ?)");
+
+    foreach($occupantData as $k => $v) {
+        $stmt->bind_param("ssss", $memberData['id'], $v['name'], $v['age'], $v['relationship']);
+        $stmt->execute();
     }
 
-    // Close statement and connection
     $stmt->close();
     $conn->close();
+
+    // Redirect back to createac.php with success message
+    header("Location: create_account.php?success=true");
+    exit;
 }
 ?>
 
@@ -279,68 +281,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <th>RELATIONSHIP</th>
                     </tr>
                     <!-- Repeat rows for occupants -->
+                    <?php for($i=0; $i<12; $i++) { ?>
                     <tr>
-                        <td><input type="text" name="occupant_name_1"></td>
-                        <td><input type="text" name="occupant_age_1"></td>
-                        <td><input type="text" name="occupant_relationship_1"></td>
-                    </tr>
-
-                     <tr>
-                        <td><input type="text" name="occupant_name_1"></td>
-                        <td><input type="text" name="occupant_age_1"></td>
-                        <td><input type="text" name="occupant_relationship_1"></td>
-                    </tr>
-                     <tr>
-                        <td><input type="text" name="occupant_name_1"></td>
-                        <td><input type="text" name="occupant_age_1"></td>
-                        <td><input type="text" name="occupant_relationship_1"></td>
-                    </tr>
-                     <tr>
-                        <td><input type="text" name="occupant_name_1"></td>
-                        <td><input type="text" name="occupant_age_1"></td>
-                        <td><input type="text" name="occupant_relationship_1"></td>
-                    </tr>
-                     <tr>
-                        <td><input type="text" name="occupant_name_1"></td>
-                        <td><input type="text" name="occupant_age_1"></td>
-                        <td><input type="text" name="occupant_relationship_1"></td>
-                    </tr>
-                     <tr>
-                        <td><input type="text" name="occupant_name_1"></td>
-                        <td><input type="text" name="occupant_age_1"></td>
-                        <td><input type="text" name="occupant_relationship_1"></td>
-                    </tr>
-                     <tr>
-                        <td><input type="text" name="occupant_name_1"></td>
-                        <td><input type="text" name="occupant_age_1"></td>
-                        <td><input type="text" name="occupant_relationship_1"></td>
-                    </tr>
-                     <tr>
-                        <td><input type="text" name="occupant_name_1"></td>
-                        <td><input type="text" name="occupant_age_1"></td>
-                        <td><input type="text" name="occupant_relationship_1"></td>
-                    </tr>
-                     <tr>
-                        <td><input type="text" name="occupant_name_1"></td>
-                        <td><input type="text" name="occupant_age_1"></td>
-                        <td><input type="text" name="occupant_relationship_1"></td>
-                    </tr>
-                     <tr>
-                        <td><input type="text" name="occupant_name_1"></td>
-                        <td><input type="text" name="occupant_age_1"></td>
-                        <td><input type="text" name="occupant_relationship_1"></td>
-                    </tr>
-                     <tr>
-                        <td><input type="text" name="occupant_name_1"></td>
-                        <td><input type="text" name="occupant_age_1"></td>
-                        <td><input type="text" name="occupant_relationship_1"></td>
-                    </tr>
-                     <tr>
-                        <td><input type="text" name="occupant_name_1"></td>
-                        <td><input type="text" name="occupant_age_1"></td>
-                        <td><input type="text" name="occupant_relationship_1"></td>
-                    </tr>
-                    
+                        <td><input type="text" name="occupant[<?php echo $i; ?>]['name']"></td>
+                        <td><input type="text" name="occupant[<?php echo $i; ?>]['age']"></td>
+                        <td><input type="text" name="occupant[<?php echo $i; ?>]['relationship']"></td>
+                    </tr>                    
+                    <?php } ?>
                     <!-- Repeat rows for additional occupants -->
                 </table>
             </div>
