@@ -1,4 +1,7 @@
 APHOA – Anak Pawis Homeowners’ Association Portal
+
+This repository contains the official implementation of the Anak Pawis Homeowners’ Association Portal (APHOA), developed as part of my Capstone Project during my Bachelor of Science in Information Technology degree.
+
 How to Install and Run
 
 Clone or Download the Repository
