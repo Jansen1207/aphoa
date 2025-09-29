@@ -1,0 +1,156 @@
+/* General container styles */
+.member-container {
+    padding: 20px;
+    background-color: #ffffff; /* Clean white background */
+    border: 1px solid #e1e1e1; /* Light border for a subtle separation */
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px; /* Maintain a professional width */
+    width: 90%; /* Responsive width */
+    box-shadow: 5px 10px 8px 10px #165259; /* Applied box-shadow */
+}
+
+/* Heading styles */
+.member-container h2 {
+    margin-bottom: 20px;
+    color: #333333; /* Darker text for readability */
+    font-size: 24px;
+    font-weight: 600; /* Bold for prominence */
+}
+
+/* Action button styles */
+.member-actions {
+    margin-bottom: 20px;
+    text-align: center; /* Center align action buttons */
+}
+
+
+
+.member-actions .btn-add-member {
+    background-color: #007bff; /* Professional blue color */
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.member-actions .btn-add-member:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Member list styles */
+.member-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between member cards */
+}
+
+/* Card styles */
+.member-card {
+    background-color: #ffffff; /* Clean card background */
+    border: 1px solid #e1e1e1; /* Matching border to container */
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(33% - 20px); /* Adjust width for spacing */
+    box-shadow: 5px 10px 8px 10px #165259; /* Applied box-shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.member-card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+    box-shadow: 5px 10px 8px 15px #165259; /* Deeper shadow on hover */
+}
+
+.member-card h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333333;
+}
+
+.member-card p {
+    margin: 5px 0;
+    color: #666666; /* Subtle text color for details */
+}
+
+/* Button styles within card */
+.member-card .btn-view-profile {
+    background-color: #007bff; /* Consistent professional blue */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Button styles within card */
+.member-card .btn-edit-profile {
+    background-color: #6c757d; /* Consistent professional blue */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.member-card .btn-view-profile:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.member-card .btn-deactivate {
+    background-color: #dc3545; /* Professional red color */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.member-card .btn-deactivate:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Search bar styles */
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center align search bar */
+}
+
+.search-bar input {
+    padding: 10px;
+    border: 1px solid #e1e1e1; /* Match border with container */
+    border-radius: 5px;
+    font-size: 16px;
+    width: 250px;
+    margin-right: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for input */
+}
+
+.search-bar .btn-search {
+    background-color: #007bff; /* Consistent professional blue */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar .btn-search:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

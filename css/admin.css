@@ -1,0 +1,202 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #fdebd7;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Adjust for mobile by default */
+    margin-top: 95px; /* Adjust this to match the header height */
+    min-height: calc(100vh - 85px);
+    margin-bottom: 750px;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 130px;
+}
+
+.header table {
+    width: 100%;
+    color: #fff;
+}
+
+.header img {
+    border-radius: 50%;
+}
+
+.header select {
+    background-color: #337AB7;
+    color: #fff;
+}
+
+.main {
+    margin: 0 auto; /* Center content on smaller devices */
+    padding: 20px;
+    width: calc(100% - 40px); /* Full width with padding */
+    max-width: 1200px; /* Limit max width for large screens */
+}
+
+.section-container {
+    margin-bottom: 50px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 10px 8px 10px #165259;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    background-color: #337AB7;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section li {
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.section .member-info {
+    display: flex;
+    align-items: center;
+}
+
+.section .member-info img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.section .buttons {
+    margin-top: 10px;
+}
+
+.section .buttons button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+}
+
+.section .buttons .approve {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.section .buttons .reject {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Added styles for charts */
+.chart-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Styles for the chart sections at the bottom */
+.charts-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Adjust for smaller screens */
+    justify-content: space-between;
+    margin-top: 50px;
+    gap: 20px; /* Add spacing between items */
+}
+
+.chart-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 10px 8px 10px #165259;
+    flex: 1;
+    margin-right: 20px;
+    min-width: 250px; /* Ensure a minimum size */
+}
+
+.chart-section:last-child {
+    margin-right: 0;
+}
+
+.chart-section h2 {
+    margin-bottom: 20px;
+    background-color: #337AB7;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.chart-container canvas {
+    max-width: 300px;
+    max-height: 200px;
+}
+
+/* MEDIA QUERIES FOR MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        margin-top: 50px; /* Adjust for smaller screens */
+    }
+
+    .main {
+        margin-left: 0;
+        margin-right: 0;
+        width: calc(100% - 20px); /* Reduce side padding for smaller screens */
+    }
+
+    .charts-wrapper {
+        flex-direction: column; /* Stack charts vertically */
+        gap: 30px; /* Add space between sections */
+    }
+
+    .chart-section {
+        margin-right: 0; /* Remove horizontal margin */
+        width: 100%; /* Full width on small devices */
+    }
+
+    .section .member-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .section .member-info img {
+        margin: 0 0 10px 0; /* Adjust spacing for vertical layout */
+    }
+
+    .header select {
+        width: 100%; /* Full width dropdown for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .header table {
+        font-size: 0.9em; /* Adjust font size */
+    }
+
+    .section .buttons button {
+        font-size: 0.8em; /* Smaller button text */
+        padding: 8px 10px; /* Adjust button size */
+    }
+
+    .chart-container canvas {
+        max-width: 100%; /* Allow charts to shrink */
+        height: auto; /* Keep aspect ratio */
+    }
+}

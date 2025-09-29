@@ -1,0 +1,213 @@
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				background-color: #fdebd7;
+			}
+
+			.container {
+				display: flex;
+				margin-top: 95px; /* Adjust this to match the header height */
+				height: calc(100vh - 85px);
+				margin-bottom: 750px;
+			}
+
+			.main {
+				margin-left: 330px; /* Space for sidebar */
+				margin-right: 180px;
+				padding: 20px;
+				width: calc(95% - 50px); /* Full width minus sidebar */
+			}
+
+			.section-container {
+				margin-bottom: 50px;
+				background-color: #fff; /* Adjust background color as needed */
+				padding: 20px;
+				border-radius: 20px;
+				box-shadow: 5px 10px 8px 10px #165259;
+			}
+
+			.section {
+				margin-bottom: 30px;
+			}
+
+			.section h2 {
+				margin-bottom: 20px;
+				background-color: #337AB7;
+				color: #fff;
+				padding: 10px;
+				border-radius: 5px;
+			}
+
+			.section ul {
+				list-style: none;
+				padding: 0;
+			}
+
+			.section li {
+				background-color: #f9f9f9;
+				margin-bottom: 20px;
+				padding: 20px;
+				border-radius: 10px;
+				box-shadow: 0 0 10px rgba(0,0,0,0.1);
+			}
+
+			.section .member-info {
+				display: flex;
+				align-items: center;
+			}
+
+			.section .member-info img {
+				border-radius: 50%;
+				margin-right: 10px;
+			}
+
+			.section .buttons {
+				margin-top: 10px;
+			}
+
+			.section .buttons button {
+				padding: 10px 15px;
+				margin-right: 10px;
+				border-radius: 5px;
+				cursor: pointer;
+				border: none;
+				outline: none;
+				font-size: 0.9em;
+			}
+
+			.section .buttons .approve {
+				background-color: #28a745;
+				color: #fff;
+			}
+
+			.section .buttons .reject {
+				background-color: #dc3545;
+				color: #fff;
+			}
+
+			/* Added styles for charts */
+			.chart-container {
+				margin-top: -200px;
+				text-align: center;
+			}
+
+			/* Styles for the chart sections at the bottom */
+			.charts-wrapper {
+				display: flex;
+				justify-content: space-between;
+				margin-top: 80px;
+			}
+
+			.chart-section {
+				background-color: #fff;
+				padding: 20px;
+				border-radius: 10px;
+				box-shadow: 5px 10px 8px 10px #165259;
+				flex: 1;
+				margin-right: 20px;
+			}
+
+			.chart-section:last-child {
+				margin-right: 0;
+			}
+
+			.chart-section h2 {
+				margin-bottom: 20px;
+				background-color: #337AB7;
+				color: #fff;
+				padding: 20px;
+				border-radius: 5px;
+			}
+
+			.chart-container canvas {
+				max-width: 300px;
+				max-height: 200px;
+			}
+
+			/* Styles for the dues table */
+			.chart-container table {
+				width: 100%;
+				border-collapse: collapse;
+				margin-top: 20px;
+			}
+
+			.chart-container table, .chart-container th, .chart-container td {
+				border: 1px solid #ddd;
+				padding: 8px;
+			}
+
+			.chart-container th {
+				background-color: #f2f2f2;
+				text-align: left;
+			}
+
+			.chart-container td {
+				font-weight: bold;
+				text-align: center;
+			}
+
+			.status-paid {
+				font-weight: bold;
+				color: green;
+			}
+
+			.status-pending {
+				font-weight: bold;
+				color: red;
+			}
+
+			.status-active {
+				font-weight: bold;
+				color: #28a745; /* Highlight active status */
+			}
+
+			.status-inactive {
+				color: #6c757d; /* Dull inactive status */
+			}
+
+			/* Filter by Month dropdown */
+			.form-group {
+				margin-bottom: 20px;
+			}
+
+			.form-group label {
+				margin-right: 10px;
+				font-weight: bold;
+			}
+
+			.form-group select {
+				padding: 5px;
+				border-radius: 5px;
+				border: 1px solid #ddd;
+			}
+
+	/* Center buttons within the button group */
+	.btn-group {
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+	}
+
+	/* Style for buttons */
+	button {
+		padding: 10px 15px; /* Adjusted padding for better appearance */
+		border-radius: 5px;
+		border: none;
+		cursor: pointer;
+		font-size: 0.9em; /* Adjusted font size */
+		color: #fff; /* Default text color */
+	}
+
+	/* Specific button styles */
+	button.approve {
+		background-color: #28a745; /* Green color for approve button */
+	}
+
+	button.reject {
+		background-color: #dc3545; /* Red color for reject button */
+	}
+
+	/* Hover effects */
+	button:hover {
+		opacity: 0.8; /* Slightly reduce opacity on hover for a visual effect */
+	}

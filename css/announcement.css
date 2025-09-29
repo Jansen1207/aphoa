@@ -1,0 +1,90 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Centering the Announcement Center */
+#announcementcenter {
+    display: none; /* Ensure it is hidden initially */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #fff; 
+    padding: 40px; /* Adjusted padding */
+    box-shadow: 5px 10px 8px 10px #165259; /* Applied box-shadow */
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px; /* Increased width */
+    height: auto; /* Allow height to adjust based on content */
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #c1930c; /* Border in the announcement color */
+}
+
+/* Heading Styles */
+#announcementcenter h3 {
+    margin-bottom: 40px; /* Increased margin */
+    font-size: 40px; /* Larger font size */
+    color: #333; /* Darker text for better readability */
+    border-bottom: 2px solid #c1930c; /* Use the color for emphasis */
+    padding-bottom: 20px; /* Increased padding */
+    font-weight: 600; /* Slightly bolder font */
+}
+
+/* Form Styles */
+#announcementcenter form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Input and Textarea Styles */
+#announcementcenter input[type="text"],
+#announcementcenter textarea {
+    margin-bottom: 25px; /* Increased margin */
+    padding: 20px; /* Increased padding */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 20px; /* Larger font size */
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#announcementcenter input[type="text"]:focus,
+#announcementcenter textarea:focus {
+    border-color: #c1930c; /* Border color on focus */
+    box-shadow: 0 0 8px rgba(193, 148, 12, 0.5); /* Enhanced focus shadow */
+    outline: none;
+}
+
+/* Adjusted Textarea */
+#announcementcenter textarea {
+    min-height: 250px; /* Increased minimum height for more typing space */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+/* Button Styles */
+#announcementcenter button[type="submit"] {
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff; /* Background color */
+    color: #ffffff; /* White text */
+    font-size: 20px; /* Larger font size */
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#announcementcenter button[type="submit"]:hover {
+    background-color: #0056b3; /* Slightly darker for hover */
+    transform: scale(1.03); /* Slight scaling effect */
+}
+
+#announcementcenter button[type="submit"]:active {
+    background-color: #0056b3; /* Even darker when clicked */
+    transform: scale(0.98); /* Slightly reduce size when clicked */
+}

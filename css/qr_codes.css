@@ -1,0 +1,176 @@
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #fdebd7;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 95px; /* Adjust this to match the header height */
+            height: calc(100vh - 105px);
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 130px;
+        }
+
+        .header table {
+            width: 100%;
+            color: #fff;
+        }
+
+        .header img {
+            border-radius: 50%;
+        }
+
+        .header select {
+            background-color: #337AB7;
+            color: #fff;
+        }
+
+        .main {
+            margin-left: 330px; /* Space for sidebar */
+            margin-right: 180px;
+            padding: 20px;
+            width: calc(100% - 510px); /* Full width minus sidebar and margins */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the content horizontally */
+            justify-content: center; /* Center the content vertically */
+            height: calc(100vh - 95px); /* Adjust height to fit container */
+        }
+
+        .section-container {
+            margin-bottom: 50px;
+            background-color: #fff; /* Adjust background color as needed */
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 5px 10px 8px 10px #165259;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            background-color: #337AB7;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section li {
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .section .member-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .section .member-info img {
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .section .buttons {
+            margin-top: 10px;
+        }
+
+        .section .buttons button {
+            padding: 10px 15px;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-size: 0.9em;
+        }
+
+        .section .buttons .approve {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .section .buttons .reject {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        /* Added styles for charts */
+        .chart-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .chart-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 10px 8px 10px #165259;
+            width: 100%; /* Full width within the container */
+            max-width: 500px; /* Limit maximum width for better fit */
+            box-sizing: border-box; /* Include padding and border in width calculation */
+        }
+
+        .chart-section h2 {
+            margin: 0 0 20px; /* No top margin, only bottom */
+            background-color: #337AB7;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.2em; /* Adjust font size for better appearance */
+        }
+
+        .chart-container canvas {
+            max-width: 100%; /* Responsive width */
+            max-height: 200px;
+        }
+
+        /* QR Code Form Styling */
+        #qrForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #qrForm input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Include padding and border in width calculation */
+            max-width: 400px; /* Limit max-width for better appearance */
+        }
+
+        #qrForm button {
+            padding: 20px 20px;
+            border: none;
+            background-color: #5cb85c;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        #qrForm button:hover {
+            background-color: #4cae4c;
+        }
+
+        #qrCode {
+            margin-bottom: 5px;
+        }

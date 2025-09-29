@@ -1,0 +1,76 @@
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #fdebd7;
+        }
+
+       .container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 75px; /* Adjust this to match the header height */
+    height: 90vh;
+}
+
+       
+           .container-receipt{
+            width: 80%;
+            margin-top: 40px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+             background-color: #fff;
+            margin-left: 260px;
+        }
+        .member {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+        .active {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .inactive {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .member-header {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .status {
+            font-weight: bold;
+        }
+        .payment-status {
+            margin-top: 10px;
+        }
+        .paid {
+            color: green;
+        }
+        .unpaid {
+            color: red;
+        }
+        .filter, .sort {
+            margin-bottom: 20px;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            padding: 8px;
+            width: calc(100% - 110px);
+            box-sizing: border-box;
+        }
+        .search-bar button {
+            padding: 8px;
+            width: 100px;
+        }
+        .sort select {
+            padding: 8px;
+            font-size: 1em;
+        }
+        .filter button.active {
+            background-color: #007bff;
+            color: white;
+        }

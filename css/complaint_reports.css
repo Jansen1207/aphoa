@@ -1,0 +1,205 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* Container for the reports */
+.reports-container {
+    max-width: 1200px; /* Increased max-width */
+    margin: 20px auto;
+    padding: 30px; /* Increased padding */
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 5px 10px 8px 10px #165259; /* Added box-shadow */
+}
+
+/* Heading styling */
+.reports-container h2 {
+    font-size: 30px; /* Increased font size */
+    color: #333;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #c1930c;
+    padding-bottom: 15px; /* Increased padding */
+    font-weight: 600;
+}
+
+/* Individual report item styling */
+.report-item {
+    margin-bottom: 25px; /* Increased margin */
+    padding: 25px; /* Increased padding */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 5px 10px 8px 10px #165259; /* Added box-shadow */
+}
+
+/* Header of each report item */
+.report-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px; /* Increased padding */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Details in the report header */
+.report-name, .report-id, .report-date {
+    margin-right: 20px;
+    font-size: 16px; /* Increased font size */
+    color: #666;
+}
+
+/* Title of each report */
+.report-title {
+    font-size: 24px; /* Increased font size */
+    color: #c1930c;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Description and other details */
+.report-description, .report-category, .report-address {
+    font-size: 18px; /* Increased font size */
+    margin-bottom: 15px; /* Increased margin */
+    color: #444;
+}
+
+/* Attachments section */
+.report-attachments h4 {
+    font-size: 20px; /* Increased font size */
+    margin-bottom: 15px; /* Increased margin */
+    color: #333;
+}
+
+/* Link styling in reports */
+.report-link {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    margin-bottom: 10px; /* Increased margin */
+    font-size: 16px; /* Increased font size */
+}
+
+.report-link:hover {
+    text-decoration: underline;
+}
+
+/* Actions buttons within the report */
+.report-actions {
+    margin-top: 25px; /* Increased margin */
+    display: flex;
+    gap: 15px; /* Increased gap */
+}
+
+/* General button styling */
+.btn {
+    padding: 12px 20px; /* Increased padding */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px; /* Increased font size */
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Specific button styles */
+.btn-view {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-update {
+    background-color: #3187A2;
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #FF0000;
+    color: #fff;
+}
+
+.btn-back {
+    background-color: #000000;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Button hover effects */
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn-view:hover {
+    background-color: #0056b3;
+}
+
+.btn-update:hover {
+    background-color: #26788f;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+.btn-back:hover {
+    background-color: #222222;
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle::after {
+    content: '\25BC'; /* Dropdown arrow */
+    margin-left: 5px;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 5px 10px 8px 10px #165259; /* Added box-shadow */
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    width: 220px;
+    padding: 12px 0; /* Increased padding */
+}
+
+.dropdown-menu .dropdown-item {
+    display: block;
+    padding: 12px 18px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px; /* Increased font size */
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #f5f5f5;
+}
+
+.dropdown-menu .dropdown-item.under-review:hover {
+    background-color: #f8a200;
+    color: #fff;
+}
+
+.dropdown-menu .dropdown-item.resolved:hover {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* Show dropdown menu on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
