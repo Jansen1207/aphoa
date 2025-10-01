@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = submitAnnouncement($title, $message);
         if ($result === true) {
             // Redirect to announcement_center.php after successful submission
-            header("Location: /announcement_center.php");
+            header("Location: /aphoa/announcement_center.php");
             exit(); // Stop script execution after redirect
         } else {
             echo $result; // Output the error message

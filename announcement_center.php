@@ -46,7 +46,7 @@ $announcementsResult = $conn->query($announcementsSql);
 <div id="announcementcenter" style="display: block; font-family: 'Arial', sans-serif; background-color: #fff; color: #000; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
     <h3 style="text-align: center; font-weight: bold; margin-bottom: 20px; letter-spacing: 1px; color: #000;">Announcement Center</h3>
     <div id="message" style="color: #000; text-align: center; font-weight: bold; margin-bottom: 20px;"></div>
-    <form id="announcementForm" action="./includes/announcement.php" method="post" style="display: flex; flex-direction: column; gap: 15px;">
+    <form id="announcementForm" action="/aphoa/includes/announcement.php" method="post" style="display: flex; flex-direction: column; gap: 15px;">
         <input type="text" name="title" placeholder="Title" required aria-label="Title" 
             style="padding: 10px; border: none; border-radius: 5px; background-color: #fff; color: #000; font-size: 1rem; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);">
         <textarea name="message" placeholder="Message" required aria-label="Message" 
@@ -57,7 +57,7 @@ $announcementsResult = $conn->query($announcementsSql);
         </button>
     </form>
     <h4 style="margin-top: 30px; font-weight: bold; text-align: center; letter-spacing: 1px; color: #000;">Recent Announcements</h4>
-    <table style="width: 100%; border-collapse: collapse; margin-top: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 10px; overflow: hidden; color: #000;">
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 10px; overflow: hidden; color: #000;">           
         <thead>
             <tr style="background-color: rgba(0, 0, 0, 0.1);">
                 <th style="padding: 15px; border: none; text-align: left; color: #000;">Title</th>
@@ -91,7 +91,7 @@ $announcementsResult = $conn->query($announcementsSql);
     </button>
 
     <!-- Delete Button -->
-    <form action="./includes/delete_announcement.php" method="post" style="display: inline;">
+    <form action="/aphoa/includes/delete_announcement.php" method="post" style="display: inline;">
         <input type="hidden" name="id" value="<?php echo $announcement['id']; ?>">
         <button type="submit" 
             style="padding: 12px 24px; background: linear-gradient(135deg, #ff0000, #ff6347); color: #fff; border: none; border-radius: 25px; font-weight: bold; font-size: 1rem; cursor: pointer; text-transform: uppercase; box-shadow: 0 5px 15px rgba(255, 0, 0, 0.5); transition: transform 0.3s, box-shadow 0.3s;"
@@ -161,7 +161,7 @@ $(document).ready(function() {
             
             $.ajax({
                 type: 'POST',
-                url: '/includes/edit_announcement.php',
+                url: '/aphoa/includes/edit_announcement.php',
                 data: { 
                     announcement_id: announcementId, 
                     announcement_text: updatedText,

@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         $stmt->bind_param("i", $id);
         if ($stmt->execute()) {
             // Redirect to announcement_center.php after successful deletion
-            header("Location: /announcement_center.php");
+            header("Location: /aphoa/announcement_center.php");
             exit(); // Make sure to call exit after redirection
         } else {
             // Optionally, you could handle the error here
